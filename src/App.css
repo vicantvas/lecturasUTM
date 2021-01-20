@@ -1,0 +1,50 @@
+nav.top-nav {
+    height: 110px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #546e7a;
+}
+
+.noticias-deslizables{
+    height: 26px;
+    border-bottom: 1px solid rgba(0,0,0,0.14);
+    background-color: transparent;
+    display: flex;
+    justify-content:center;
+}
+.tabla{
+  font-size: 10px;
+  width: 80%;
+  margin: 50px 0px 0px 30px;
+}
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #F1F1F1;
+}
+.header {
+    color: #F5DF4D;
+    font-weight: 300;
+    margin: 0;
+    padding-top: 22px;
+}
+header{
+  margin-bottom: 15px;
+}
+div {
+    display: block;
+}
+
+@media screen and (max-width: 397px){
+  .header {
+      font-size: 50px;
+  }
+}
+@media screen and (max-width: 342px){
+  .header {
+      font-size: 40px;
+  }
+}
+@media screen and (max-width: 279px){
+  .header {
+      font-size: 30px;
+  }
+}

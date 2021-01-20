@@ -1,0 +1,75 @@
+.dash-container{
+	width: 79%;
+	position: absolute;
+	position: fixed;
+	top: 0;
+	padding-left: 4%;
+	height: 100vh;
+	z-index: 1000;
+	background-color: rgba(250,250,250,0.95);
+	border-radius: 50px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -mos-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+    left: -2000px;
+}
+.izquierda{
+	height: 100vh;
+	border-right: 5px solid rgba(225,235,235,0.5);
+}
+.derecha{
+	height: 100vh;
+}
+.libro-imagen{
+	margin-left: 10%;
+	margin-top: 30px;
+}
+.estrellas2{
+	margin-left: 10%;
+}
+.estrellas2>i{
+	font-size: 35px;
+}
+.calificar{
+	margin-top: 85px;
+}
+.estrellas3{
+	padding-top: 14px !important;
+}
+.estrellas3>i{
+	font-size: 28px;
+	margin-right: 2px;
+	cursor: pointer;
+}
+.boton-descarga{
+	margin-top: 20px;
+	margin-left: 10% !important;	
+}
+.close{
+	position: relative;
+	left: 90%;
+	top: 20px;
+	cursor: pointer;
+}
+.text-autor2{
+  font-size: 19px;
+  color:#979797;
+  margin-bottom: 20px;
+}
+h3{
+	margin: 1.9466666667rem 0 0 0;
+}
+.des{
+	text-align: justify;
+}
+.scroll-vic{
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 100%;
+	width: 80%;
+	margin-top: 5px;
+	margin-left: 16%;
+	padding-right: 10%;
+}

@@ -1,0 +1,83 @@
+
+.libro{
+  width: 166px;
+  margin-bottom: 15px;
+  box-shadow: -5px 5px 5px 5px rgba(0,0,0,.1), -2px 2px 5px 2px rgba(0,0,0,.14);
+  border-radius: 3px;
+  border-top-right-radius: 5px;
+}
+.m2{
+  width: 179px !important;
+}
+.libro-hover{
+  background-color: rgba(170,185,185,0.7);
+  position: relative;
+  bottom: 255px;
+  height: 250px;
+  width: 166px;
+  opacity: 0;
+  display: flex;
+  justify-content:center;
+}
+.infor{
+  background: rgba(50,70,70,0.7);
+  position: absolute;
+  bottom: 140px;
+  color: #f5df5d;
+}
+.infor:hover {
+  background:#455a64;
+}
+.infor2:hover {
+  background:#455a64;
+}
+.infor2{
+  background: rgba(50,70,70,0.7);
+  position: absolute;
+  bottom: 100px;
+  color: #f5df5d;
+}
+.libro-img{
+  height: 250px;
+  width: 166px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 10px;
+}
+.libro-img-i{
+  border-top-left-radius: 3px;
+  border-top-right-radius: 5px;
+}
+.libro-hover:hover {
+  opacity: 1;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  -ms-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+.libro-calif{
+  height: 85px;
+  padding-left: 5px;
+}
+.estrellas{
+  height: 24px;
+}
+.text-namelibro{
+  line-height : 14px;
+  font-weight: 600;
+}
+.text-namelibro:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.text-autor{
+  font-size: 13px;
+  color:#979797;
+}
+.pag{
+  font-size: 13px;
+  color:#575757; 
+  position: relative;
+  left: 80%;
+  top:-39px;
+}
