@@ -24,19 +24,17 @@ render(){
                     </div>
                   </div>
                   <div className="libro-calif">
-                    <div className="estrellas">
+                      <div onClick={()=>{this.props.detalles(this.props.namelibro)}} className="text-namelibro" >{this.props.namelibro}</div>
+                      <div className="text-autor">{this.props.autorlibro}</div>
+                  </div>
+                </div>
+                <div className="estrellas">
                       <i className="material-icons">star</i>
                       <i className="material-icons">star</i>
                       <i className="material-icons">star</i>
                       <i className="material-icons">star</i>
                       <i className="material-icons">star_border</i>
                     </div>
-                    <div>
-                      <div onClick={()=>{this.props.detalles(this.props.namelibro)}} className="text-namelibro" >{this.props.namelibro}</div>
-                      <span className="text-autor">{this.props.autorlibro}</span>
-                    </div>
-                  </div>
-                </div>
                 <div className="pag">{this.props.pag} pp.</div>
               </div>
 	)

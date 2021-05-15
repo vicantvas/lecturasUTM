@@ -5,9 +5,11 @@ import '../css/comentario.css';
 export default class Comentario extends React.Component {
 render(){
 	return (
-        <div className="col comentario">
-            {this.props.comm}
-        </div>
+
+        
+    <blockquote className="col comentario">
+        {this.props.comm}
+    </blockquote>
     );
 }
 }

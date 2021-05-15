@@ -16,6 +16,9 @@ export default class Dash extends React.Component {
 			star4:true,
 			star5:true,
 			coment:null,
+			UserName: '',
+			UserFoto: '',
+			UserEmail: '',
     	};
 	}
 	cerrar(){
@@ -23,6 +26,16 @@ export default class Dash extends React.Component {
 		this.setState({coment:null})
 	}
 	coment(){
+		const comentario={
+			UserName: this.state.UserName,
+			UserFoto: this.state.UserFoto,
+			comentario: document.getElementById('textarea2').value,
+			timestamp: this.props.firebase.firestore.FieldValue.serverTimestamp(),
+		};
+		this.props.db.collection("libros").doc(this.props.id).collection("coments").doc(this.state.UserEmail)
+			.set(comentario)
+			.then(()=>{console.log("Comentario enviado")})
+			.catch((e)=>{console.log("Tu comentario no se pudo guardar: "+e)})
 		let comens=this.state.coment;
 		if(comens===null){
 			comens=[];
@@ -166,8 +179,26 @@ estrellashover(){
 		});
 }
 	componentDidMount(){
-		setTimeout(()=>{document.getElementById("dash").style.left = "-4%";M.CharacterCounter.init(document.getElementById("textarea2"));},20);
+		let html = 'Para calificar un libro necesitas iniciar sesión con GOOGLE';
+    	M.toast({html: html});
+		html = 'Tranquilo, solo pedimos tu nombre y foto de perfil';
+    	setTimeout(() => { M.toast({html: html}); }, 3000);
+		setTimeout(()=>{document.getElementById("dash").style.left = "-4%";
+						M.CharacterCounter.init(document.getElementById("textarea2"));},20);
 		this.estrellashover();
+		let modal=M.Modal.init(document.querySelectorAll('.modal'),{onOpenStart:()=>{
+			const provider= new this.props.firebase.auth.GoogleAuthProvider();
+			this.props.auth.signInWithPopup(provider).then(result=>{
+				document.getElementById("modal1").className = "calificar modal";
+				this.setState({UserName:result.user.displayName, UserFoto: result.user.photoURL, UserEmail:result.user.email})
+				//.email
+			});
+		},
+		onCloseEnd:()=>{
+			this.props.auth.signOut().then(()=>console.log("Sesion Cerrada, Bye"));
+			document.getElementById("modal1").className = "calificar modal oculto";
+		}});
+		
 	}
 render(){
 	return (
@@ -182,8 +213,8 @@ render(){
                       <i className="material-icons">star</i>
                       <i className="material-icons">star_border</i>
                     </div>
-                    <a className="boton-descarga waves-effect waves-light btn col s9 " href={this.props.url2}>descargar epub</a>
-                    <a className="boton-descarga waves-effect waves-light btn col s9 red" href={this.props.url2}>descargar pdf</a>
+                    <a className={this.props.url2?"boton-descarga waves-effect waves-light btn col s9 ":"boton-descarga waves-effect waves-light btn col s9 disabled"} href={this.props.url2}>descargar epub</a>
+                    <a className={this.props.pdf?"boton-descarga waves-effect waves-light btn col s9 red":"boton-descarga waves-effect waves-light btn col s9 red disabled"} href={this.props.pdf}>descargar pdf</a>
 				</div>
 			</div>
 			<div className="col s8 m8 derecha">
@@ -192,37 +223,42 @@ render(){
 					<h3>{this.props.name}</h3>
 					<div className="text-autor2">{this.props.autor}</div>
 					<div className="des" >{this.props.descripcion}</div>
-					<div className="calificar">
-					  <div className="row">
-						<h5 className="col s3">Calificar</h5>
-					    <div className="estrellas3 col s5">
-	                      <i id="star1" className="material-icons">star_border</i>
-	                      <i id="star2" className="material-icons">star_border</i>
-	                      <i id="star3" className="material-icons">star_border</i>
-	                      <i id="star4" className="material-icons">star_border</i>
-	                      <i id="star5" className="material-icons">star_border</i>
-	                    </div>
-	                  </div>		
-					    <div className="row">
-					      <form className="col s12">
-					        <div className="row">
-					          <div className="input-field col s12">
+					<div className="Njo8s"></div>
+					<div>
+					<button data-target="modal1" class="btn modal-trigger btn-calif">Calificar</button>
+					<div id="modal1" className="calificar modal oculto">
+					  <h5 className="calificar-title">Calificar</h5>
+					  <div className="info-comentario container">Las reseñas son públicas y no se pueden modificar. El desarrollador puede eliminar por completo cualquier reseña.</div>
+					  <div className="">
+						<div className="col m3">
+							<img className="libro-imagen2" src={this.props.imagen} alt="img" width="80%" height="35%" />
+						</div>
+						<form className="col m9 formu">
+					          <div className="input-field">
 					            <textarea id="textarea2" className="materialize-textarea" data-length="180"></textarea>
-					            <label for="textarea2">Tu opinión</label>
+					            <label htmlFor="textarea2">Tu opinión</label>
 					          </div>
-							  <div className="btn waves-effect waves-light grey darken-1" onClick={this.coment} style={{marginLeft: '73%',marginBottom: 20}}> Enviar
+							  <div className="estrellas3">
+								<i id="star1" className="material-icons">star_border</i>
+								<i id="star2" className="material-icons">star_border</i>
+								<i id="star3" className="material-icons">star_border</i>
+								<i id="star4" className="material-icons">star_border</i>
+								<i id="star5" className="material-icons">star_border</i>
+								<span style={{fontSize:10, color: 'grey'}}>Calificación obligatoria</span>
+							  </div>
+							  <div className="enviar-com btn waves-effect waves-light grey darken-1" onClick={this.coment} > Enviar
 									<i className="material-icons right">send</i>
 							  </div>
-					        </div>
-					      </form>
-					    </div>
+					    </form>
+	                  </div>		
 					</div>
-					<div className="row" style={{height:500, marginLeft:10, marginTop:-80}}>
-					<div className="row">
-						<div className="col s12" style={{marginBottom:20}}>
-							<h6>Comentarios:</h6>
+					<div className="row" style={{height:500, marginLeft:10, marginTop:-60}}>
+						<div className="row">
+							<div className="col s12" style={{marginBottom:20}}>
+								<h6>Calificaciones de este libro:</h6>
+							</div>
+							{this.state.coment}
 						</div>
-						{this.state.coment}
 					</div>
 					</div>
 				</div>
