@@ -58,13 +58,22 @@
 .libro-calif{
   height: 85px;
   padding-left: 5px;
+  background-color: white;
 }
 .estrellas{
-  height: 24px;
+  height: 20px;
+  position: relative;
+  top:-45px;
+  left: 5px;
+}
+.material-icons{
+  font-size: 21px;
 }
 .text-namelibro{
-  line-height : 14px;
+  line-height : 16px;
   font-weight: 600;
+  font-size: 15px;
+  margin-top: 5px;
 }
 .text-namelibro:hover{
   cursor: pointer;
@@ -73,11 +82,15 @@
 .text-autor{
   font-size: 13px;
   color:#979797;
+  width: 158px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .pag{
   font-size: 13px;
   color:#575757; 
   position: relative;
   left: 80%;
-  top:-39px;
+  top:-59px;
 }

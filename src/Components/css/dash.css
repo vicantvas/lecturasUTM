@@ -15,6 +15,43 @@
     transition: all 1s;
     left: -2000px;
 }
+.libro-imagen2{
+	margin:10%;
+	margin-left: 20%;
+	margin-bottom: 20%;
+}
+.input-field{
+	margin-right: 1cm;
+	margin-top: 25px;
+	margin-bottom: 100px;
+	
+}
+.materialize-textarea{
+	max-height: 360px !important;
+}
+.info-comentario{
+	color:gray;
+	position: absolute;
+	top: 30px;
+	left:22%;
+	letter-spacing: -1px;
+}
+.oculto{
+	display: none !important;
+}
+.calificar-title{
+	width: 100%;
+	padding: 25px 10px 5px 1.2cm;
+}
+.btn-calif{
+	background-color: #410401;
+	margin-left: 75%;
+}
+.Njo8s{
+	border-bottom: 1px solid #CCC;
+    margin: 30px 30px 30px 0;
+    width: 100%;
+}
 .izquierda{
 	height: 100vh;
 	border-right: 5px solid rgba(225,235,235,0.5);
@@ -37,11 +74,19 @@
 }
 .estrellas3{
 	padding-top: 14px !important;
+	position: absolute;
+	bottom: 30px;
 }
+
 .estrellas3>i{
-	font-size: 28px;
+	font-size: 40px;
 	margin-right: 2px;
 	cursor: pointer;
+}
+.enviar-com{
+	position: absolute;
+	bottom: 30px;
+	left: 78%;
 }
 .boton-descarga{
 	margin-top: 20px;
