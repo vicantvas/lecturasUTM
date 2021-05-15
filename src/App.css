@@ -1,50 +1,104 @@
+/*  font-size: calc(10px + 2vmin);*/
 nav.top-nav {
     height: 110px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    background-color: #546e7a;
+    background: rgb(29,0,0);
+    background: linear-gradient(90deg, rgba(29,0,0,1) 3%, rgba(82, 4, 20, 0.908) 30%, rgba(138,1,29,1) 50%, rgba(82, 4, 20, 0.908) 70%, rgba(29,0,0,1) 97%);
 }
-
-.noticias-deslizables{
-    height: 26px;
-    border-bottom: 1px solid rgba(0,0,0,0.14);
-    background-color: transparent;
-    display: flex;
-    justify-content:center;
+body{
+  background-color: #FFFFCC;
 }
-.tabla{
-  font-size: 10px;
-  width: 80%;
-  margin: 50px 0px 0px 30px;
+h1{
+  color: #FFF;
+  font-weight: 300;
+  font-family: "Times New Roman", Times, serif;
+  padding-top: 22px;
+  margin: 0;
+}
+.switch label input[type=checkbox]+.lever:after {
+  background-color: #941414;
 }
 .switch label input[type=checkbox]:checked+.lever:after {
-    background-color: #F1F1F1;
+  background-color: #941414;
 }
-.header {
-    color: #F5DF4D;
-    font-weight: 300;
-    margin: 0;
-    padding-top: 22px;
+.switch label {
+  color: #740000;
+  font-weight: 500;
 }
-header{
-  margin-bottom: 15px;
+.switch div {
+  color: #740000;
+  font-size: 12px;
+  width: 90px;
+  padding-top: 2px;
+  float:left;
 }
-div {
-    display: block;
+.noticias-deslizables{
+  height: 30px;
+  border-bottom: 1px solid rgba(53, 30, 30, 0.548);
+  background-color: #291801;
+  display: flex;
+  justify-content:center;
+  color: #FFFF99;
+}
+.principal{
+  margin-top:15px;
+}
+.row .col.offset-m1 {
+  margin-left: 5.333333%!important;
+  margin-right: 3%!important;
+}
+.contenedor-librero{
+  position: relative;
+}
+.card-informativo{
+  background-color: #410401  ;
+  border-radius: 15px;
+  text-align: center;
+  display: none;
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-@media screen and (max-width: 397px){
-  .header {
-      font-size: 50px;
-  }
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
-@media screen and (max-width: 342px){
-  .header {
-      font-size: 40px;
-  }
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
-@media screen and (max-width: 279px){
-  .header {
-      font-size: 30px;
-  }
+.prev, .next {
+  cursor: pointer;
+  height: 80px;
+  position: absolute;
+  top: 42%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: rgba(121, 25, 44, 0.908);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.4s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+ color:white;
 }

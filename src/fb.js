@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage";
+import "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCpzuvB6Q56tdeBdhXBwIqkcNdMSeWXwSo",
@@ -12,4 +13,5 @@ const firebaseConfig = {
   measurementId: "G-NKH6HTSW35"
 };
 
-export default !firebase.apps.length? firebase.initializeApp(firebaseConfig).storage(): firebase.app().storage();
+export default !firebase.apps.length? firebase.initializeApp(firebaseConfig): firebase.app();
+export const fb = firebase;
